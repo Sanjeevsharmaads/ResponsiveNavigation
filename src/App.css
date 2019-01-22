@@ -1,0 +1,125 @@
+.nav-list{
+  display: block;
+  top:20px;
+  position: absolute;
+  list-style-type: none;
+  text-align: center; 
+}
+
+
+.list-item{
+  float: left;
+  top:50px;
+  margin-left: 120px;
+  margin-bottom: 20px;
+}
+
+.navigation{
+  position: relative;
+  background:black;
+  height:80px;
+  color:white;
+}
+
+.btn-hamburger{
+  background-color: black;
+}
+
+.fa-bars{
+  font-size: 24px;
+  color:Red;
+}
+
+.fa-close{
+  font-size: 24px;
+  color:Red;
+  display:none;
+}
+
+.social-icons{
+  font-size: 36px;
+  display: none;
+}
+
+.hamburger{
+  background: black;
+  position: absolute;
+  top: 30px;
+  padding-left: 20px;
+  display: none;
+}
+
+.toggle{
+  display: none;
+}
+
+img{
+  display: none;
+  float:right;
+  position: block;
+}
+
+
+@media screen and (max-width: 768px) {
+  .nav-list{
+    display: none;
+    top:70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .list-item{
+    float: none;
+    display: none;
+    text-align: left;
+    margin-left:10px;
+    color:red;
+    background-color:black
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fa-close{
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .hamburger{
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  img{
+    display: block;
+    height:80px;
+    width: 200px;  
+  }
+}
+
+@media screen and (min-width:1008px) and (max-width:1280px){
+  .list-item{
+    margin-left: 80px;
+
+  }
+}
+
+@media screen and (min-width:768px) and (max-width:1008px){
+  .list-item{
+    margin-left: 30px;
+
+  }
+}
+
+@media screen and (min-width:875px) and (max-width:1008px){
+  .social-icons{
+    display: block;
+  }
+}
+
+
+
+
