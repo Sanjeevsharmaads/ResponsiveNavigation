@@ -5,13 +5,30 @@ import './App.css';
 class Navigation extends Component {
 	constructor(props){
 		super(props)
-		this.state ={menuStatus :true,close:false,data:["Men","Women","Collection","Handbags","Wallets","Shoes","Watches"]}
+		this.state ={count:0,menuStatus :true,close:false,data:["Men","Women","Collection","Handbags","Wallets","Shoes","Watches"]}
+		this.handleScroll = this.handleScroll.bind(this)
+	}
+
+	componentDidMount(){
+		window.addEventListener('resize',this.handleScroll);
+	}
+
+	componentWillUmount(){
+		window.removeEventListener('resize',this.handleScroll);
+	}
+
+	handleScroll(){
+		console.log('hello'+window.innerWidth);
+		if(window.innerWidth>768){
+			this.setState({close:false});
+		}
 	}
 
 	hamburger = () => {
 		console.log('hamburger');
-		this.setState({menuStatus:!this.state.menuStatus});
+		this.setState({menuStatus:!this.state.menuStatus,count:this.state.count+1});
 		this.setState({close:!this.state.close});
+
 	}
 
   render() {
@@ -28,7 +45,7 @@ class Navigation extends Component {
         </ul>
 
         <div>
-	        <ul  style={{backgroundColor:"black", width:"20%",paddingTop:'80px',textAlign: 'left',color:"white",display:this.state.close ? "block" : "none"}}>
+	        <ul  className="toggle" style={{backgroundColor:"black", width:"20%",paddingTop:'80px',textAlign: 'left',color:"white",display:this.state.close ? "block" : "none"}}>
 	        	<li style={{marginBottom:'10px',fontSize: '20px',display:this.state.close ? "block" : "none"}}>{this.state.data[0]}</li>
 	        	<li style={{marginBottom:'10px',fontSize: '20px',display:this.state.close ? "block" : "none"}}>{this.state.data[1]}</li>
 	        	<li style={{marginBottom:'10px',fontSize: '20px',display:this.state.close ? "block" : "none"}}>{this.state.data[2]}</li>
@@ -39,8 +56,8 @@ class Navigation extends Component {
 	        </ul>
         </div>
 
-        <div className="hamburger">
-			    <button onClick={this.hamburger}>
+        <div className="hamburger" >
+			    <button onClick={this.hamburger} >
 			      <i class="fa fa-bars" style={{display:this.state.close ? "none" : "block"}}></i>
 			      <i class="fa fa-close" style={{display:this.state.close ? "block" : "none"}}></i>
 					</button>
